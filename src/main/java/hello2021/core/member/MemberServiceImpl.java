@@ -9,7 +9,13 @@ package hello2021.core.member;
  */
 public class MemberServiceImpl implements MemberService{
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    // 배우가 직접 담당 배우를 섭외하는 것과 똑같다. -> 이건 모두 AppConfig가 해야한다!
+    // 오로지 인터페이스만 존재한다...
+    private final MemberRepository memberRepository;
+
+    public MemberServiceImpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     @Override
     public void join(Member member) {

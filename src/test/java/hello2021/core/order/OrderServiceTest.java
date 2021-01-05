@@ -1,10 +1,12 @@
 package hello2021.core.order;
 
+import hello2021.core.AppConfig;
 import hello2021.core.member.Grade;
 import hello2021.core.member.Member;
 import hello2021.core.member.MemberService;
 import hello2021.core.member.MemberServiceImpl;
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -18,9 +20,15 @@ import static org.junit.jupiter.api.Assertions.*;
  */
 class OrderServiceTest {
 
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+    MemberService memberService;
+    OrderService orderService;
 
+    @BeforeEach
+    public void beforeEach(){
+        AppConfig appConfig = new AppConfig();
+        memberService = appConfig.memberService();
+        orderService = appConfig.orderService();
+    }
     @Test
     void createOrder() {
         Long memberId = 1L;
