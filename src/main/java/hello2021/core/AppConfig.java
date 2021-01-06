@@ -1,11 +1,16 @@
 package hello2021.core;
 
+import hello2021.core.DiscountPolicy.DiscountPolicy;
 import hello2021.core.DiscountPolicy.FixDiscountPolicy;
+import hello2021.core.DiscountPolicy.RateDiscountPolicy;
+import hello2021.core.member.MemberRepository;
 import hello2021.core.member.MemberService;
 import hello2021.core.member.MemberServiceImpl;
 import hello2021.core.member.MemoryMemberRepository;
 import hello2021.core.order.OrderService;
 import hello2021.core.order.OrderServiceImpl;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
 /**
  * @author Gatsjy
@@ -15,16 +20,28 @@ import hello2021.core.order.OrderServiceImpl;
  * Github : https://github.com/gatsjy
  */
 
-// 생성자 주입의 예..
+@Configuration
 public class AppConfig {
 
+    @Bean
     public MemberService memberService() {
         return new MemberServiceImpl(new MemoryMemberRepository());
     }
 
+    @Bean
+    public MemberRepository memberRepository(){
+        return new MemoryMemberRepository();
+    }
+
+    @Bean
     public OrderService orderService(){
         return new OrderServiceImpl(
                 new MemoryMemberRepository(),
                 new FixDiscountPolicy());
+    }
+
+    @Bean
+    public DiscountPolicy discountPolicy(){
+        return new RateDiscountPolicy();
     }
 }
