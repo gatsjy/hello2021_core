@@ -1,8 +1,8 @@
 package hello2021.core;
 
-import hello2021.core.DiscountPolicy.DiscountPolicy;
-import hello2021.core.DiscountPolicy.FixDiscountPolicy;
-import hello2021.core.DiscountPolicy.RateDiscountPolicy;
+import hello2021.core.discount.DiscountPolicy;
+import hello2021.core.discount.FixDiscountPolicy;
+import hello2021.core.discount.RateDiscountPolicy;
 import hello2021.core.member.MemberRepository;
 import hello2021.core.member.MemberService;
 import hello2021.core.member.MemberServiceImpl;

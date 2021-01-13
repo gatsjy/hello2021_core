@@ -1,12 +1,8 @@
 package hello2021.core.order;
 
-import hello2021.core.DiscountPolicy.DiscountPolicy;
-import hello2021.core.DiscountPolicy.FixDiscountPolicy;
-import hello2021.core.DiscountPolicy.RateDiscountPolicy;
+import hello2021.core.discount.DiscountPolicy;
 import hello2021.core.member.Member;
 import hello2021.core.member.MemberRepository;
-import hello2021.core.member.MemberServiceImpl;
-import hello2021.core.member.MemoryMemberRepository;
 
 /**
  * @author Gatsjy

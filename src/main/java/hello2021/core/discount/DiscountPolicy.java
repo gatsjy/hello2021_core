@@ -1,4 +1,4 @@
-package hello2021.core.DiscountPolicy;
+package hello2021.core.discount;
 
 import hello2021.core.member.Member;
 

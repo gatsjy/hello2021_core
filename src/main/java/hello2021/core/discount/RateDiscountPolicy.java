@@ -1,4 +1,4 @@
-package hello2021.core.DiscountPolicy;
+package hello2021.core.discount;
 
 import hello2021.core.member.Grade;
 import hello2021.core.member.Member;
@@ -10,14 +10,13 @@ import hello2021.core.member.Member;
  * Blog : https://blog.naver.com/gkswndks123
  * Github : https://github.com/gatsjy
  */
-public class FixDiscountPolicy implements DiscountPolicy {
-    
-    private int discountFixAmount = 1000; // 1000원 할인
+public class RateDiscountPolicy implements DiscountPolicy{
 
+    private int discountPercent = 10;
     @Override
     public int disount(Member member, int price) {
         if(member.getGrade()== Grade.VIP){
-            return discountFixAmount;
+            return price * discountPercent /100;
         }else{
             return 0;
         }
